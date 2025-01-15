@@ -8,10 +8,13 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update              # Make sure we get the latest list of charts
 helm search repo bitnami
 ```
+
+### For prometheus stack
 ```
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
 helm install prometheus prometheus-community/prometheus
+kubectl patch ds prometheus-prometheus-node-exporter --type "json" -p '[{"op": "remove", "path" : "/spec/template/spec/containers/0/volumeMounts/2/mountPropagation"}]'
 ```
 
 ### We can see default values by typing
