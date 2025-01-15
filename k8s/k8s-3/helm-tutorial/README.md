@@ -8,7 +8,11 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update              # Make sure we get the latest list of charts
 helm search repo bitnami
 ```
-
+```
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install prometheus prometheus-community/prometheus
+```
 
 ### We can see default values by typing
 ```
